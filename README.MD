@@ -30,8 +30,11 @@ the demo folder, you can provide your own recorded data as well, see options.
 
 #### Usage read data script with hydra visualiser
 
-NOTE: this doesn't work sadly, osc.js only works with websockets not a udp
-client.
+NOTE: this doesn't work sadly, osc.js only works with websockets not an udp
+client in the browser. To make it work you need use
+[hydra-atom](https://github.com/hydra-synth/atom-hydra) with
+[atom](https://atom-editor.cc/) or [pulsar](https://pulsar-edit.dev/), which is
+beyond the scope of this readme.
 - First run the read data script, as per instructions above, once this is
   running go the following step.
 - Go to [hydra site](https://hydra.ojack.xyz)

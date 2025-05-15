@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# WIP
+# NOTE: Works, just about
 
 import socket
 import json
@@ -9,6 +9,8 @@ import select
 import queue
 import pandas as pd
 import numpy as np
+
+from pythonosc import udp_client
 
 
 def show_menu():
@@ -47,10 +49,12 @@ def action_decode(action):
         return ''
 
 class TCPClient(object):
-    def __init__(self):
+    def __init__(self, osc_ip, osc_port):
         self.tcpIp = '127.0.0.1'
         self.tcpPort = 5555
         self.buffer_size = 99999
+        self.osc_ip = osc_ip
+        self.osc_port = osc_port
 
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.inputCheck = []
@@ -76,6 +80,7 @@ class TCPClient(object):
         self.socket.close()
 
     def msgChecker(self):
+        osc_client = udp_client.SimpleUDPClient(self.osc_ip, self.osc_port)
         while self.isChecking:
             readable, writable, exceptional = select.select(self.inputCheck, self.outputCheck, self.inputCheck)
             for s in readable:
@@ -84,9 +89,20 @@ class TCPClient(object):
                     print(message)
                     self.inputCheck = []
                 else:
-                    print(message)
-                    message = json.loads(message)
-                    message = message["returnData"]
+                    # print(message)
+                    try:
+                        message = json.loads(message)
+                        message = message["returnData"]
+                        values = next(iter(message.values()))
+                        # -50 +50 ?
+                        normalised = (values[0][2] + 50) / 100.0
+                        print(normalised)
+                    except:
+                        pass
+                    else:
+                        pass
+                        # print('non')
+                    # osc_client.send_message("/sensor", message[0])
                     if not self.txtFile.getHasHeader():
                         newLine = json.dumps(message) + "\n"
                         self.txtFile.addData(newLine)
@@ -163,7 +179,7 @@ if __name__ == "__main__":
                   8: 'exit'
                   }
 
-    CONNECTION = TCPClient()
+    CONNECTION = TCPClient('127.0.0.1', 5555)
     CONNECTION.connect()
     CONNECTION.start()
     while True:

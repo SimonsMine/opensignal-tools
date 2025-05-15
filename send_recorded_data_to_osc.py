@@ -105,7 +105,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--ip", default="127.0.0.1",
         help="The ip of the OSC server")
-    parser.add_argument("--port", type=int, default=41235,
+    parser.add_argument("--port", type=int, default=8080,
         help="The port the OSC server is listening on")
     parser.add_argument("--data-file-path", type=str, default=os.path.join(_DATA_DIR, "breath-short.txt"),
         help="Path to txt file that stores the opensensor data")
@@ -115,4 +115,4 @@ if __name__ == "__main__":
     osc_client = udp_client.SimpleUDPClient(args.ip, args.port)
     format_and_data = get_data(args.data_file_path)
     loop_enabled = args.no_loop is None
-    playback_data_osc(osc_client=osc_client, format_and_data=format_and_data, desired_frequency=30, loop_enabled=loop_enabled)
+    playback_data_osc(osc_client=osc_client, format_and_data=format_and_data, desired_frequency=50, loop_enabled=loop_enabled)
