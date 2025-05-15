@@ -1,0 +1,122 @@
+{
+    "00:07:80:8C:AD:4F": {
+        "position": 0,
+        "device": "biosignalsplux",
+        "device name": "00:07:80:8C:AD:4F",
+        "device connection": "BTH00:07:80:8C:AD:4F",
+        "sampling rate": 1000,
+        "resolution": [
+            16
+        ],
+        "firmware version": 779,
+        "comments": "",
+        "keywords": "",
+        "mode": 0,
+        "sync interval": 2,
+        "date": "2025-5-14",
+        "time": "11:15:10.145",
+        "channels": [
+            1
+        ],
+        "sensor": [
+            "RIP"
+        ],
+        "label": [
+            "CH1"
+        ],
+        "column": [
+            "nSeq",
+            "DI",
+            "CH1"
+        ],
+        "special": [
+            {
+                "SpO2": [
+                    80,
+                    40,
+                    5,
+                    4,
+                    3,
+                    3
+                ]
+            },
+            {
+                "SpO2": [
+                    80,
+                    40,
+                    5,
+                    4,
+                    3,
+                    3
+                ]
+            },
+            {
+                "SpO2": [
+                    80,
+                    40,
+                    5,
+                    4,
+                    3,
+                    3
+                ]
+            },
+            {
+                "SpO2": [
+                    80,
+                    40,
+                    5,
+                    4,
+                    3,
+                    3
+                ]
+            },
+            {
+                "SpO2": [
+                    80,
+                    40,
+                    5,
+                    4,
+                    3,
+                    3
+                ]
+            },
+            {
+                "SpO2": [
+                    80,
+                    40,
+                    5,
+                    4,
+                    3,
+                    3
+                ]
+            },
+            {
+                "SpO2": [
+                    80,
+                    40,
+                    5,
+                    4,
+                    3,
+                    3
+                ]
+            },
+            {
+                "SpO2": [
+                    80,
+                    40,
+                    5,
+                    4,
+                    3,
+                    3
+                ]
+            }
+        ],
+        "digital IO": [
+            0,
+            1
+        ],
+        "sleeve color": [
+            "green"
+        ]
+    }
+}
